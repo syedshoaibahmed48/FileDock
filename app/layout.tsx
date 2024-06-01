@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import { AppWrapper } from "./contexts/app-context";
+import Navbar from "./components/Navbar";
 
 export const metadata: Metadata = {
   title: "FileDock",
@@ -16,9 +15,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <main>
-          {children}
+      <body className="mx-auto no-scrollbar">
+        <main className="bg-gradient-to-tr from-zinc-900 via-zinc-800 via-60% to-zinc-900 w-screen h-screen text-white">
+          <AppWrapper>
+            <Navbar />
+            {children}
+          </AppWrapper>
         </main>
       </body>
     </html>

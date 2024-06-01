@@ -1,11 +1,45 @@
+"use client"
+
+import { useAppContext } from "@/app/contexts/app-context"
+
 export default function Home() {
+
+  const { originUrl } = useAppContext();
+  
   return (
-    <div className="flex flex-col p-4 space-y-4">
-      <div className="flex flex-row align-middle">
-        <label className="block mr-2 text-md font-medium text-gray-900" htmlFor="file_input">Upload file:</label>
-        <input className="w-fit block text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none" id="file_input" type="file" />
-      </div>
-      <button type="button" className="w-fit text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">Submit</button>
+    <div className="w-screen h-screen">
+      <section className="text-white">
+        <div className="w-screen h-screen px-4 py-20">
+          <div className="mx-auto max-w-3xl text-center">
+            <h1
+              className="bg-clip-text text-6xl font-extrabold text-white"
+            >
+              Understand User Flow.
+            </h1>
+
+            <p className="mx-auto mt-4 max-w-xl text-xl/relaxed">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo tenetur fuga ducimus
+              numquam ea!
+            </p>
+
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <a
+                className="block w-full rounded border border-teal-500 bg-teal-500 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
+                href={`${originUrl}/file-upload`}
+              >
+                File Upload Page
+              </a>
+
+              <a
+                className="block w-full rounded border border-teal-500 px-12 py-3 text-sm font-medium text-white hover:bg-teal-500 focus:outline-none focus:ring active:bg-teal-500 sm:w-auto"
+                href={`${originUrl}/signin`}
+              >
+                Signin Page
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

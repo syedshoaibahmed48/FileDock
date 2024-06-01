@@ -1,4 +1,0 @@
-- file preview
-- mobile responsive
-- File Conversion or manipulation Tools
-- public and private Spaces

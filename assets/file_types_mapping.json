@@ -1,0 +1,25 @@
+{
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": "Excel File",
+    "image/jpeg": "JPEG Image",
+    "image/png": "PNG Image",
+    "image/gif": "GIF Image",
+    "audio/mpeg": "MP3 Audio",
+    "video/mp4": "MP4 Video",
+    "text/plain": "Text File",
+    "application/pdf": "PDF Document",
+    "application/zip": "ZIP Archive",
+    "application/x-msdownload": "Executable File",
+    "application/json": "JSON File",
+    "application/xml": "XML File",
+    "application/javascript": "JavaScript File",
+    "text/html": "HTML File",
+    "text/css": "CSS File",
+    "text/csv": "CSV File",
+    "application/msword": "Word Document",
+    "application/vnd.ms-powerpoint": "PowerPoint Presentation",
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document": "Word Document (docx)",
+    "application/vnd.openxmlformats-officedocument.presentationml.presentation": "PowerPoint Presentation (pptx)",
+    "application/vnd.openxmlformats-officedocument.presentationml.slideshow": "PowerPoint Slideshow (ppsx)"
+
+}
+  
