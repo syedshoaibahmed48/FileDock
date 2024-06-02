@@ -12,7 +12,13 @@ export default function FileUploadPage() {
 
   function handleFileUpload(event: React.ChangeEvent<HTMLInputElement>){
     const file= event.target.files?.[0] as File;
-    postFile(file);
+    if(!file) return;
+    else if(file.size>52428800){
+      //show toast message
+      alert("File size exceeds 50 MB");
+      return;
+    }
+    else uploadFile(file);
   }
 
   function fileAlreadyExists(newFileMetaData: File){
@@ -32,7 +38,7 @@ export default function FileUploadPage() {
     }))
   }
 
-  async function postFile(file: File){
+  async function uploadFile(file: File){
     const fileExists: Boolean = fileAlreadyExists(file);
     if(fileExists){
       const overwriteFile = confirm(`file with the name and type already exists, do you want to overwrite`);
@@ -41,7 +47,7 @@ export default function FileUploadPage() {
     try {
       const formData = new FormData();
       formData.set('file', file as File);
-      const response = await fetch(`${process.env.NEXT_PUBLIC_File_API}`,{
+      const response = await fetch(`/api/file`,{
         method: 'POST',
         body: formData
       }); 
@@ -50,6 +56,10 @@ export default function FileUploadPage() {
         const newFile = (await response.json()).metadata;
         if(fileExists) updateExistingFileMetaData(newFile);
         else appendNewFileMetaData(newFile);
+      } 
+      else {
+        //show toast message
+        alert((await response.json()).message);
       }
     } catch (error) {
       //show toast message

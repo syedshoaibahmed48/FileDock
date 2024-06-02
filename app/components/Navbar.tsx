@@ -1,10 +1,6 @@
 "use client"
 
-import { useAppContext } from "../contexts/app-context"
-
 export default function Navbar(){
-
-  const { originUrl } = useAppContext();
 
   return(
       <nav id="header" className="w-full text-white py-1">
@@ -12,7 +8,7 @@ export default function Navbar(){
           <div className=" flex items-center">
             <a
               className="text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
-              href={originUrl}
+              href="/"
             >
               <svg
                 className="h-6 w-6 inline-block fill-current text-yellow-700"

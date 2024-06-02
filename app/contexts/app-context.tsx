@@ -1,21 +1,16 @@
 "use client"
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext } from 'react';
 
-interface ContextValue{
-  originUrl: string
+interface ContextValue{//add to interfaces file when set
+  
 }
 
-const AppContext = createContext<ContextValue>({originUrl: ''});
+const AppContext = createContext<ContextValue>({});
 
 export function AppWrapper({ children }: { children: React.ReactNode }) {
-  const [originUrl, setOriginUrl] = useState<string>(''); 
-
-  useEffect(() => {
-    setOriginUrl(window.location.origin); 
-  }, []);
 
   return (
-    <AppContext.Provider value={{ originUrl }}>
+    <AppContext.Provider value={{ }}>
       {children}
     </AppContext.Provider>
   );

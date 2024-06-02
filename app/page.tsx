@@ -1,10 +1,6 @@
 "use client"
 
-import { useAppContext } from "@/app/contexts/app-context"
-
 export default function Home() {
-
-  const { originUrl } = useAppContext();
   
   return (
     <div className="w-screen h-screen">
@@ -25,14 +21,14 @@ export default function Home() {
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <a
                 className="block w-full rounded border border-teal-500 bg-teal-500 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
-                href={`${originUrl}/file-upload`}
+                href="/file-upload"
               >
                 File Upload Page
               </a>
 
               <a
                 className="block w-full rounded border border-teal-500 px-12 py-3 text-sm font-medium text-white hover:bg-teal-500 focus:outline-none focus:ring active:bg-teal-500 sm:w-auto"
-                href={`${originUrl}/signin`}
+                href="/signin"
               >
                 Signin Page
               </a>

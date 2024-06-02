@@ -1,14 +1,11 @@
 "use client"
 import { useState } from "react";
-import { useAppContext } from "@/app/contexts/app-context"
 import { UserAuthData } from "@/app/models/app-interfaces";
 
 export default function SignIn() {
 
-    const { originUrl } = useAppContext();
-
     const [userAuthData, SetUserAuthData] = useState<UserAuthData>({
-        userName: '',
+        username: '',
         password: ''
     })    
 
@@ -26,7 +23,7 @@ export default function SignIn() {
                             <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                         </svg>
                     </span>
-                    <input type="text" value={userAuthData.userName} onChange={(e)=>{SetUserAuthData({...userAuthData, userName: e.target.value})}} className="block w-full py-3 border rounded-lg px-11 bg-zinc-900 text-zinc-300 border-zinc-600 focus:ring-teal-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Username" />
+                    <input type="text" value={userAuthData.username} onChange={(e)=>{SetUserAuthData({...userAuthData, username: e.target.value})}} className="block w-full py-3 border rounded-lg px-11 bg-zinc-900 text-zinc-300 border-zinc-600 focus:ring-teal-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Username" />
                 </div>
                 <div className="relative flex items-center mt-4">
                     <span className="absolute">
@@ -42,7 +39,7 @@ export default function SignIn() {
                     </button>
                     <div className="mt-6 text-center">
                         <p className="text-sm">Don't have an account?
-                            <a href={`${originUrl}/signup`} className="text-teal-500 ml-2 hover:underline">
+                            <a href="/signup" className="text-teal-500 ml-2 hover:underline">
                                 Sign up
                             </a>
                         </p>
