@@ -4,7 +4,7 @@ export interface FileMetaData {
     name: string;
     size: number;
     type: string;
-    dateUploaded: Date;
+    dateUploaded: string;
 }
 
 export interface UserAuthData {
@@ -23,4 +23,9 @@ export interface UserDocument extends Document {
     email: string;
     password?: string;
     isDemoUser: boolean;
+}
+
+export interface UserSignUpValidationResult{
+    isValid: boolean;
+    message?: string;
 }

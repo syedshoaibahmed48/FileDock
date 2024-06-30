@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react";
 import { UserAuthData } from "@/app/models/app-interfaces";
-import validationRegex from "@/assets/validation_regex.json";
+import validationRegex from "@/assets/user_validation_rules.json";
 
 export default function AuthPage(){
 
@@ -40,6 +40,7 @@ export default function AuthPage(){
                 alert((await response.json()).message);
             }
         } catch (error) {
+            //show toast
             console.error(error);
         }
         
@@ -68,7 +69,7 @@ export default function AuthPage(){
                         className={`block w-full py-3 border rounded-lg px-11 bg-zinc-900 text-zinc-300 ${showValidationErrors ? (userAuthData.isValidUsername ? 'border-teal-300' : 'border-red-500') : 'border-teal-300'} focus:ring-zinc-300 focus:outline-none focus:ring focus:ring-opacity-40`} placeholder="Username" />
                 </div>
                 {showValidationErrors && !userAuthData.isValidUsername && (
-                        <p className="text-red-500 text-sm mt-1">{validationRegex.usernameValidMessage}</p>
+                        <p className="text-red-500 text-sm mt-1">{validationRegex.usernameInvalidMessage}</p>
                 )}
                 <div className="relative flex items-center mt-6">
                     <span className="absolute">
@@ -89,7 +90,7 @@ export default function AuthPage(){
                         className={`block w-full py-3 border rounded-lg px-11 bg-zinc-900 text-zinc-300 ${showValidationErrors ? (userAuthData.isValidEmail ? 'border-teal-300' : 'border-red-500') : 'border-teal-300'} focus:ring-zinc-300 focus:outline-none focus:ring focus:ring-opacity-40`} placeholder="Email address" />
                 </div>
                 {showValidationErrors && !userAuthData.isValidEmail && (
-                        <p className="text-red-500 text-sm mt-1">{validationRegex.emailValidMessage}</p>
+                        <p className="text-red-500 text-sm mt-1">{validationRegex.emailInvalidMessage}</p>
                 )}
                 <div className="relative flex items-center mt-4">
                     <span className="absolute">
@@ -110,7 +111,7 @@ export default function AuthPage(){
                         className={`block w-full px-10 py-3 border rounded-lg bg-zinc-900 text-zinc-300 ${showValidationErrors ? (userAuthData.isValidPassword ? 'border-teal-300' : 'border-red-500') : 'border-teal-300'} focus:ring-zinc-300 focus:outline-none focus:ring focus:ring-opacity-40`} placeholder="Password" />
                 </div>
                 {showValidationErrors && !userAuthData.isValidPassword && (
-                        <p className="text-red-500 text-sm mt-1">{validationRegex.passwordValidMessage}</p>
+                        <p className="text-red-500 text-sm mt-1">{validationRegex.passwordInvalidMessage}</p>
                 )}
                 <div className="relative flex items-center mt-4">
                     <span className="absolute">

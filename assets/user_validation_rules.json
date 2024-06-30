@@ -1,0 +1,10 @@
+{
+    "usernameRegex": "^[a-zA-Z0-9_]{3,20}$",
+    "usernameInvalidMessage": "Username can contain 3-20 characters, only letters, numbers, and underscores, no special characters or spaces.",
+    "usernameExistsMessage": "Username already exists. Please choose a different one.",
+    "emailRegex": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+    "emailInvalidMessage": "Please enter a valid email address. Example: yourname@example.com",
+    "emailExistsMessage": "Email already in use. Please choose a different one.",
+    "passwordRegex": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{6,}$",
+    "passwordInvalidMessage": "Password must contain at least 6 characters with at least one uppercase letter, one lowercase letter and one number"
+}

@@ -9,8 +9,27 @@ export default function SignIn() {
         password: ''
     })    
 
-    function signinUser() {
-        // Auth logic
+    async function signinUser() {
+        try {
+            const response = await fetch('/api/signin', {
+                method: 'POST',
+                body: JSON.stringify({
+                    username: userAuthData.username,
+                    password: userAuthData.password
+                })
+            })
+            if(response.ok){
+                //show toast message
+                console.log((await response.json()).message);
+            }
+            else{
+                //show toast message
+                alert((await response.json()).message);
+            }
+        } catch (error) {
+            //show toast
+            console.error(error);
+        }
     }
 
     return (
@@ -34,7 +53,11 @@ export default function SignIn() {
                     <input type="password" value={userAuthData.password} onChange={(e)=>{SetUserAuthData({...userAuthData, password: e.target.value})}} className="block w-full px-10 py-3 border rounded-lg bg-zinc-900 text-zinc-300 border-zinc-600 focus:ring-teal-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Password" />
                 </div>
                 <div className="mt-6">
-                    <button type="button" className="w-full px-6 py-3 text-lg font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-teal-500 rounded-lg hover:bg-teal-400 focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-50">
+                    <button 
+                        type="button" 
+                        onClick={signinUser}
+                        className="w-full px-6 py-3 text-lg font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-teal-500 rounded-lg hover:bg-teal-400 focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-50"
+                    >
                         Sign in
                     </button>
                     <div className="mt-6 text-center">
